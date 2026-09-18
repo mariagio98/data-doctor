@@ -115,7 +115,7 @@ def clean_column_names(columns):
 
 
 def remove_special_chars(series):
-    return series.astype(str).apply(lambda x: re.sub(r"[^\w\s]", "", x))
+    return series.astype(str).str.replace(r"[^\w\s]", "", regex=True)
 
 
 if uploaded_file is not None:
